@@ -1,0 +1,12 @@
+{
+  "name": "Playground",
+  "displayName": "Playground",
+  "expo": {
+    "name": "Playground",
+    "slug": "Playground",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

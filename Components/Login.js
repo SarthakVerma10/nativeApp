@@ -1,9 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
-import hero from './resources/hero.svg';
+import hero from '../resources/hero.svg';
+import { useFonts, DMSans_400Regular, DMSans_700Bold } from '@expo-google-fonts/dm-sans'
 
-export default function App() {
+export default function Login({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    DMSans_400Regular,
+    DMSans_700Bold
+  })
   return (
     <View style={styles.container}>
       <Image
@@ -21,10 +26,14 @@ export default function App() {
       </Text>
       <TouchableOpacity
         style={styles.button}
+        onPress={() => navigation.navigate('Create')}
       >
         <Text style={styles.buttonText}>Create account</Text>
       </TouchableOpacity>
-      <Text style={styles.linkText}>
+      <Text 
+      style={styles.linkText}
+      onPress={() => navigation.navigate('Home')}
+      >
         Login
       </Text>
     </View>
@@ -35,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingTop: '154px',
-    flex: 1
+    flex: 1,
   },
   img: {
     height: '273.23px',
@@ -45,7 +54,8 @@ const styles = StyleSheet.create({
     fontSize: '34px',
     fontWeight: "700",
     maxWidth: '90%',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'DMSans_700Bold'
   },
   hero_subtitle: {
     maxWidth: '85%',
@@ -53,7 +63,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '600',
     marginTop: 15,
-    fontSize: '17px'
+    fontSize: '17px',
+    fontFamily: 'DMSans_400Regular'
   },
   button: {
     marginTop: 30,
